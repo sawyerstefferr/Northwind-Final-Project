@@ -74,7 +74,7 @@ $(function () {
                     "email": $('#User').data('email'),
                     "qty": $('#Quantity').val()
                 }),
-            success: function (response, textStatus, jqXhr) {
+                success: function (response, textStatus, jqXhr) {
                 // success
                 toast("Product Added", response.product.productName + " successfully added to cart.");
             },
@@ -87,9 +87,9 @@ $(function () {
     });
 
     //todo ---------------
-    $('#shoppingCart').on('click', 'tr', function(){
-        $('#displayCartModal').modal();
-    });
+    //$('#shoppingCart').on('click','tr', function(){
+    //    $('#displayCartModal').modal();
+    //});
 
     function toast(header, message) {
         $('#toast_header').html(header);

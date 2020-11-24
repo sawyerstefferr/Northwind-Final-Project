@@ -82,7 +82,6 @@ namespace Northwind.Controllers
             }
             return View();
         }
-
         private void AddErrorsFromResult(IdentityResult result)
         {
             foreach (IdentityError error in result.Errors)

@@ -16,6 +16,7 @@ namespace Northwind.Models
         public IQueryable<Product> Products => context.Products;
         public IQueryable<Discount> Discounts => context.Discounts;
         public IQueryable<Customer> Customers => context.Customers;
+        public IQueryable<CartItem> CartItems => context.CartItems;
 
         public void AddCustomer(Customer customer)
         {
@@ -38,7 +39,9 @@ namespace Northwind.Models
 
         public CartItem AddToCart(CartItemJSON cartItemJSON)
         {
-            int CustomerId = context.Customers.FirstOrDefault(c => c.Email == cartItemJSON.email).CustomerId;
+            int CustomerId = getCustomerId(cartItemJSON);
+            //context.Customers.FirstOrDefault(c => c.Email == cartItemJSON.email).CustomerId;
+
             int ProductId = cartItemJSON.id;
             // check for duplicate cart item
             CartItem cartItem = context.CartItems.FirstOrDefault(ci => ci.ProductId == ProductId && ci.CustomerId == CustomerId);
@@ -62,6 +65,11 @@ namespace Northwind.Models
             context.SaveChanges();
             cartItem.Product = context.Products.Find(cartItem.ProductId);
             return cartItem;
+        }
+
+        public int getCustomerId(CartItemJSON cartItemJSON){
+            int CustomerId = context.Customers.FirstOrDefault(c => c.Email == cartItemJSON.email).CustomerId;
+            return CustomerId;
         }
     }
 }

@@ -9,9 +9,10 @@ namespace Northwind.Models
         IQueryable<Product> Products { get; }
         IQueryable<Discount> Discounts { get; }
         IQueryable<Customer> Customers { get; }
-
+        IQueryable<CartItem> CartItems { get; }
         void AddCustomer(Customer customer);
         void EditCustomer(Customer customer);
         CartItem AddToCart(CartItemJSON cartItemJSON);
+        int getCustomerId(CartItemJSON cartItemJSON);
     }
 }

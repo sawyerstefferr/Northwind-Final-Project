@@ -33,5 +33,10 @@ namespace Northwind.Controllers
         [HttpPost, Route("api/addtocart")]
         // adds a row to the cartitem table
         public CartItem Post([FromBody] CartItemJSON cartItem) => repository.AddToCart(cartItem);
+
+        //returns all customer items
+        [HttpGet, Route("api/cartitem/show-cart-items/{email}")]
+        public IEnumerable<CartItem> GetCartItems(string email) => repository.CartItems.Where(c => c.Customer.Email == email).OrderBy(c => c.CartItemId);
+
     }
 }

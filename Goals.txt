@@ -1,0 +1,13 @@
+dotnet web dev final
+#5 shopping cart
+view shopping cart
+only show when logged in -- done
+update the qty of items in the cart
+includes removing them
+create a cart checkout feture
+-clears the cart
+-update order tables to reduce the qty in them
+discount
+
+
+
