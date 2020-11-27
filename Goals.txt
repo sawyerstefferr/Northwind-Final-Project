@@ -11,3 +11,5 @@ discount
 
 
 
+redundent code in product and layout
+- only need it in layout  -- done

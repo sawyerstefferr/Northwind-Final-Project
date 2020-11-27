@@ -16,7 +16,7 @@
     <link rel="stylesheet" href="/css/client.css" />
 </head>
 <body>
-    <div id="CurrentUser" style="display:none;"
+    <div id="User" style="display:none;"
         data-email="@User.Identity.Name"
         data-customer="@User.IsInRole("Customer")">
     </div>
@@ -137,6 +137,11 @@
     @RenderSection("Scripts", required: false)
 </body>
 </html>
+
+
+
+
+
 
 
 
