@@ -36,15 +36,17 @@
                 //todo cartitemid, customer, customerid, product, productid, quantity
 
                 //todo figure out how to add info to the modal
-                //$('#product_rows').html("");
-                //for (var i = 0; i < response.length; i++) {
-                //    var row = "<tr" + css + " data-id=\"" + response[i].productId + "\" data-name=\"" + response[i].productName + "\" data-price=\"" + response[i].unitPrice + "\">"
-                //        + "<td>" + response[i].productName + "</td>"
-                //        + "<td class=\"text-right\">$" + response[i].unitPrice.toFixed(2) + "</td>"
-                //        + "<td class=\"text-right\">" + response[i].unitsInStock + "</td>"
-                //        + "</tr>";
-                //    $('#product_rows').append(row);
-                //}
+                $('#cart_rows').html("");
+                for (var i = 0; i < response.length; i++) {
+                   var row = "<tr data-id=\"" + response[i].productId + "\" data-name=\"" + response[i].productName + "\" data-price=\"" + response[i].unitPrice + "\">"
+                       + "<div class=\"row\"> <div class=\"col col-xs-5 pt-2\">$<span id=\"ProductName\">" + response[i].productName + "</span></div>"
+                       + "<div class=\"col col-xs-5 pt-2\"> <span id=\"UnitPrice\">$" + response[i].unitPrice.toFixed(2)+"</span></div>"
+                       + "<div class=\"col col-xs-5 pt-2\">"
+                       + "<input type=\"number\" min=\"1\" value=\"" + response[i].unitsInStock + "\" id=\"Quantity\" class=\"form-control\"/></div>"
+                       + "<div class=\"col col-xs-5 pt-2\">$<span id=\"Total\"></span></div>"
+                       + "</div></tr>";
+                   $('#product_rows').append(row);
+                }
             },
             error: function (jqXHR, textStatus, errorThrown) {
                 // log the error to the console
